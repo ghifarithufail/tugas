@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="includes/base :: css"></head>
+    <body>
+        <header th:replace="includes/base :: navbar"></header>
+
+        <main role="main " class="container">
+            <div th:replace="includes/base :: head-content"></div>
+            <div class="container mt-5">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h5 class="mb-4">Judul Halaman</h5>
+
+                        <form method="POST" action="#" th:action="@{/inventories/store}" th:object="${inventories}">
+                            <input type="hidden" th:field="*{id}" />
+                            <div class="form-group">
+                                <label for="example-inventories-name">Tuliskan Nama to-do</label>
+                                <input th:field="*{name}" type="text" class="form-control" id="example-inventories-name" aria-describedby="emailHelp" placeholder="Enter inventories name" required>
+                                <small id="emailHelp" class="form-text text-muted">Judul to-do minimal berisi 5 karakter.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="example-inventories-desc">Jelaskan deskripsi to-do</label>
+                                <textarea th:field="*{description}" rows="3" class="form-control" id="example-inventories-desc" aria-describedby="emailHelp" placeholder="Enter inventories description"></textarea>
+                                <small id="emailHelp" class="form-text text-muted">Kamu dapat menuliskan deskripsi to-do secara detail pada kolom ini.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                        <label for="example-inventories-stock">Masukan stok yang tersedia</label>
+                                        <input th:field="*{stock}" type="text" class="form-control" id="example-inventories-stock" aria-describedby="emailHelp" placeholder="Enter inventories stock" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+
+        <div th:replace="includes/base  :: footer"></div>
+
+        <div th:replace="includes/base  :: scripts"></div>
+    </body>
+</html>
